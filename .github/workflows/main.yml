@@ -1,0 +1,14 @@
+name: CI de mi Proyecto DAW
+on: [push] # Se dispara cada vez que subes código
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Servidor virtual Linux
+    steps:
+      - uses: actions/checkout@v3 # Descarga tu código en el servidor
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install # Instala dependencias
+      - run: npm test    # Ejecuta los tests
